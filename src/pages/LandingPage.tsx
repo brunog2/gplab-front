@@ -5,11 +5,11 @@ const LandingPage: FunctionComponent = () => {
   const [rectangleInputValue, setRectangleInputValue] = useState("");
   const navigate = useNavigate();
 
-  const onButtomEntrarClick = useCallback(() => {
+  const onRectangleButtonClick = useCallback(() => {
     navigate("/login");
   }, [navigate]);
 
-  const onButtomCadastroClick = useCallback(() => {
+  const onRectangleInputClick = useCallback(() => {
     navigate("/cadastro-de-usurio");
   }, [navigate]);
 
@@ -17,12 +17,12 @@ const LandingPage: FunctionComponent = () => {
     <div className="relative bg-white w-full h-[4360px] overflow-hidden text-left text-base text-darkslategray-100 font-ibm-plex-sans">
       <div className="absolute top-[0px] left-[0px] bg-lavender w-[1440px] h-[842px]" />
       <div className="absolute top-[1154px] left-[1440px] rounded-[50%] bg-lightskyblue w-[800px] h-[800px] [transform:_rotate(-180deg)] [transform-origin:0_0]" />
-      <div className="absolute top-[45px] left-[120px] flex flex-row items-center justify-start gap-[156px] text-13xl text-gray-200">
+      <div className="absolute top-[45px] left-[120px] w-[837px] h-[51px] flex flex-row items-center justify-between text-13xl text-gray-200">
         <b className="relative">
           <span>GP</span>
           <span className="text-royalblue-100">Lab</span>
         </b>
-        <div className="w-[526px] flex flex-row items-center justify-center gap-[29px]">
+        <div className="w-[526px] flex flex-row items-center justify-between">
           <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-xl [text-decoration:underline] font-medium font-ibm-plex-sans text-royalblue-100 text-left inline-block">
             Início
           </button>
@@ -36,24 +36,24 @@ const LandingPage: FunctionComponent = () => {
             História
           </button>
         </div>
-        <div className="flex flex-row items-start justify-start gap-[19px]">
+      </div>
+      <div className="absolute top-[45px] left-[1102px] flex flex-row items-start justify-between text-xl text-royalblue-100">
+        <div className="w-[122px] h-[51px] flex flex-col items-center justify-end">
           <button
-            className="cursor-pointer p-0 bg-[transparent] rounded-31xl flex flex-col items-start justify-start relative border-[1px] border-solid border-royalblue-100"
-            onClick={onButtomEntrarClick}
-          >
-            <div className="absolute my-0 mx-[!important] top-[12px] left-[34px] text-xl font-semibold font-ibm-plex-sans text-royalblue-100 text-left z-[0]">
-              Entrar
-            </div>
-          </button>
-          <button
-            className="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[122px] h-[51px]"
-            onClick={onButtomCadastroClick}
-          >
-            <div className="absolute top-[0px] left-[0px] rounded-31xl bg-royalblue-100 w-[122px] h-[51px]" />
-            <div className="absolute top-[12px] left-[15px] text-xl font-semibold font-ibm-plex-sans text-white text-left">
-              Cadastrar
-            </div>
-          </button>
+            className="cursor-pointer p-0 bg-[transparent] relative rounded-31xl box-border w-[122px] h-[51px] border-[1px] border-solid border-royalblue-100"
+            onClick={onRectangleButtonClick}
+          />
+          <div className="relative font-semibold mt-[-39px]">Entrar</div>
+        </div>
+        <div className="w-[122px] h-[51px] flex flex-col items-center justify-end text-white">
+          <input
+            className="[border:none] [outline:none] bg-royalblue-100 relative rounded-31xl w-[122px] h-[51px] cursor-pointer"
+            type="text"
+            value={rectangleInputValue}
+            onChange={(event) => setRectangleInputValue(event.target.value)}
+            onClick={onRectangleInputClick}
+          />
+          <div className="relative font-semibold mt-[-39px]">Cadastrar</div>
         </div>
       </div>
       <b className="absolute top-[247px] left-[120px] text-45xl text-gray-200">
@@ -64,20 +64,16 @@ const LandingPage: FunctionComponent = () => {
         viverra amet faucibus.
       </div>
       <div className="absolute top-[553px] left-[34px] w-[590px] h-[73px]">
-        <div className="absolute top-[0px] left-[0px] flex flex-col items-center justify-center">
-          <div className="relative rounded-31xl bg-white w-[590px] h-[73px]" />
-        </div>
-        <div className="absolute top-[8px] left-[34px] w-[526px] h-14 overflow-hidden">
-          <select className="absolute top-[18px] left-[0px] bg-[transparent] [border:none] w-[152px] h-[21px] py-0 px-[26px] box-border font-ibm-plex-sans text-base text-black" />
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[0px] left-[470px] w-14 h-14">
-            <img
-              className="absolute top-[0px] left-[0px] w-14 h-14"
-              alt=""
-              src="/frame-3.svg"
-            />
-          </button>
-          <select className="absolute top-[18px] left-[320px] bg-[transparent] [border:none] w-[104px] h-[21px] py-0 px-[26px] box-border font-ibm-plex-sans text-base text-black" />
-        </div>
+        <div className="absolute top-[0px] left-[0px] rounded-31xl bg-white" />
+        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[8px] left-[504px] w-14 h-14">
+          <img
+            className="absolute top-[0px] left-[0px] w-14 h-14"
+            alt=""
+            src="/frame-3.svg"
+          />
+        </button>
+        <select className="absolute top-[26px] left-[34px] bg-[transparent] [border:none] w-[152px] h-[21px] py-0 px-[26px] box-border font-ibm-plex-sans text-base text-black" />
+        <select className="absolute top-[26px] left-[354px] bg-[transparent] [border:none] w-[104px] h-[21px] py-0 px-[26px] box-border font-ibm-plex-sans text-base text-black" />
       </div>
       <div className="absolute top-[870px] left-[0px] bg-royalblue-100 w-[1440px] h-[134px]" />
       <b className="absolute top-[1020px] left-[120px] text-29xl">
@@ -185,8 +181,7 @@ const LandingPage: FunctionComponent = () => {
         alt=""
         src="/ellipse-12@2x.png"
       />
-      <div className="absolute top-[2169px] left-[730px] w-[590px] h-[305px]">
-        <div className="absolute top-[0px] left-[0px] rounded-xl bg-white box-border w-[590px] h-[305px] border-[1px] border-solid border-darkgray" />
+      <div className="absolute top-[2169px] left-[730px] rounded-xl bg-white box-border w-[590px] h-[305px] border-[1px] border-solid border-darkgray">
         <div className="absolute top-[146px] left-[52px] inline-block w-[494px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit
           viverra amet faucibus. Lorem ipsum dolor sit amet, consectetur
@@ -250,14 +245,14 @@ const LandingPage: FunctionComponent = () => {
       <div className="absolute top-[1783px] left-[761px] inline-block w-[402px]">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
+      <div className="absolute top-[1838px] left-[730px] font-medium text-royalblue-100 inline-block w-[402px]">
+        Learn More
+      </div>
       <img
         className="absolute top-[1557px] left-[120px] rounded-xl w-[530px] h-[306px] object-cover"
         alt=""
         src="/rectangle-11@2x.png"
       />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[1838px] left-[730px] text-base font-medium font-ibm-plex-sans text-royalblue-100 text-left inline-block w-[402px]">
-        Learn More
-      </button>
       <img
         className="absolute h-[0.23%] w-[0.83%] top-[42.32%] right-[42.22%] bottom-[57.45%] left-[56.94%] max-w-full overflow-hidden max-h-full object-contain"
         alt=""
@@ -287,9 +282,9 @@ const LandingPage: FunctionComponent = () => {
         feugiat lectus risus sed ullamcorper. sed. Nibh est sit lobortis id
         semper.
       </div>
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[3211px] left-[120px] text-base font-medium font-ibm-plex-sans text-royalblue-100 text-left inline-block w-[402px]">
+      <div className="absolute top-[3211px] left-[120px] font-medium text-royalblue-100 inline-block w-[402px]">
         Learn More
-      </button>
+      </div>
       <img
         className="absolute top-[2779px] left-[654px] rounded-xl w-[666px] h-[460px] object-cover"
         alt=""
@@ -300,23 +295,16 @@ const LandingPage: FunctionComponent = () => {
         alt=""
         src="/vector.svg"
       />
-      <input
-        className="[border:none] [outline:none] bg-white absolute top-[3570px] left-[242px] rounded-[150px] w-[956px] h-[85px]"
-        type="text"
-        value={rectangleInputValue}
-        onChange={(event) => setRectangleInputValue(event.target.value)}
-      />
+      <div className="absolute top-[3570px] left-[242px] rounded-[150px] bg-white w-[956px] h-[85px]" />
+      <div className="absolute top-[3585px] left-[1125px] rounded-[50%] bg-royalblue-100 w-14 h-14" />
       <div className="absolute top-[3481px] left-[455px] text-[40px] font-semibold text-white">
         Subscribe To Our Newsletter
       </div>
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[3585px] left-[1125px] w-14 h-14">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[50%] bg-royalblue-100" />
-        <img
-          className="absolute h-[17.86%] w-[21.43%] top-[41.07%] right-[39.29%] bottom-[41.07%] left-[39.29%] max-w-full overflow-hidden max-h-full object-contain"
-          alt=""
-          src="/vector.svg"
-        />
-      </button>
+      <img
+        className="absolute h-[0.23%] w-[0.83%] top-[82.75%] right-[19.51%] bottom-[17.02%] left-[79.65%] max-w-full overflow-hidden max-h-full object-contain"
+        alt=""
+        src="/vector.svg"
+      />
       <div className="absolute top-[3889px] left-[0px] bg-royalblue-100 w-[1440px] h-[471px]" />
       <div className="absolute top-[4050px] left-[120px] text-white inline-block w-[366px]">
         <p className="m-0">
@@ -339,35 +327,23 @@ const LandingPage: FunctionComponent = () => {
         <div className="absolute top-[0px] left-[0px] text-5xl font-semibold">
           Useful Links
         </div>
-        <a className="[text-decoration:none] absolute top-[64px] left-[0px] font-medium text-[inherit]">
+        <div className="absolute top-[64px] left-[0px] font-medium">
           About Us
-        </a>
-        <a className="[text-decoration:none] absolute top-[91px] left-[0px] font-medium text-[inherit]">
+        </div>
+        <div className="absolute top-[91px] left-[0px] font-medium">
           Privacy Policy
-        </a>
-        <a className="[text-decoration:none] absolute top-[118px] left-[0px] font-medium text-[inherit]">
+        </div>
+        <div className="absolute top-[118px] left-[0px] font-medium">
           Our Mission
-        </a>
-        <a className="[text-decoration:none] absolute top-[145px] left-[0px] font-medium text-[inherit]">
+        </div>
+        <div className="absolute top-[145px] left-[0px] font-medium">
           Our Team
-        </a>
+        </div>
       </div>
-      <div className="absolute top-[4194px] left-[120px] w-[72px] h-4">
-        <img
-          className="absolute h-full w-[22.22%] top-[0%] right-[77.78%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/vector.svg"
-        />
-        <img
-          className="absolute h-full w-[22.22%] top-[0%] right-[38.89%] bottom-[0%] left-[38.89%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/group-8.svg"
-        />
-        <img
-          className="absolute h-[81.25%] w-[22.22%] top-[12.5%] right-[0%] bottom-[6.25%] left-[77.78%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/vector.svg"
-        />
+      <div className="absolute top-[4194px] left-[120px] w-[72px] h-4 flex flex-row items-center justify-start gap-[11px]">
+        <img className="relative w-4 h-4" alt="" src="/vector.svg" />
+        <img className="relative w-4 h-4" alt="" src="/group-8.svg" />
+        <img className="relative w-4 h-[13px]" alt="" src="/vector.svg" />
       </div>
       <img
         className="absolute top-[4050px] left-[954px] rounded-[10px] w-[366px] h-40 object-cover"
@@ -379,36 +355,28 @@ const LandingPage: FunctionComponent = () => {
         alt=""
         src="/vector-4.svg"
       />
-      <div className="absolute top-[4314px] left-[624px] w-[193px] h-[21px] text-center text-white">
-        <div className="absolute top-[0px] left-[14px] inline-block w-[179px]">
+      <div className="absolute top-[4314px] left-[624px] h-[21px] flex flex-row items-center justify-start text-center text-white">
+        <img className="relative w-3.5 h-3.5" alt="" src="/vector.svg" />
+        <div className="relative inline-block w-[179px] shrink-0">
           2024 All Right Reserved
         </div>
-        <img
-          className="absolute h-[66.67%] w-[7.25%] top-[19.05%] right-[92.75%] bottom-[14.29%] left-[0%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/vector.svg"
-        />
       </div>
       <img
         className="absolute top-[396.9px] left-[119.7px] w-[278.6px] h-[30.8px] object-contain"
         alt=""
         src="/vector-5.svg"
       />
-      <div className="absolute top-[750px] left-[120px] w-[145px] h-[104px] text-45xl text-white">
-        <b className="absolute top-[0px] left-[0px]">24/7</b>
-        <div className="absolute top-[83px] left-[19px] text-base">
-          Online Support
-        </div>
+      <div className="absolute top-[750px] left-[120px] w-[145px] flex flex-col items-center justify-start text-45xl text-white">
+        <b className="relative">24/7</b>
+        <div className="relative text-base">Online Support</div>
       </div>
-      <div className="absolute top-[750px] left-[356px] w-[154px] h-[104px] text-45xl text-white">
-        <b className="absolute top-[0px] left-[0px]">100+</b>
-        <div className="absolute top-[83px] left-[49px] text-base">Doctors</div>
+      <div className="absolute top-[750px] left-[356px] w-[154px] flex flex-col items-center justify-start text-45xl text-white">
+        <b className="relative">100+</b>
+        <div className="relative text-base">Doctors</div>
       </div>
-      <div className="absolute top-[750px] left-[601px] w-[130px] h-[104px] text-45xl text-white">
-        <b className="absolute top-[0px] left-[0px]">1M+</b>
-        <div className="absolute top-[83px] left-[11px] text-base">
-          Active Patients
-        </div>
+      <div className="absolute top-[750px] left-[601px] w-[130px] flex flex-col items-center justify-start text-45xl text-white">
+        <b className="relative">1M+</b>
+        <div className="relative text-base">Active Patients</div>
       </div>
       <img
         className="absolute top-[764px] left-[307px] max-w-full overflow-hidden h-[79px]"
