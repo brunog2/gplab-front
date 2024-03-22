@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+import {useState, useEffect } from "react";
 import {
   Routes,
   Route,
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 import CadastroDeMdico from "./pages/CadastroDeMdico";
 import CadastroDeUsurio from "./pages/CadastroDeUsurio";
 import Login from "./pages/Login";
-import LandingPage from "./pages/LandingPage";
+
 
 function App() {
   const action = useNavigationType();
@@ -26,18 +27,6 @@ function App() {
     let metaDescription = "";
 
     switch (pathname) {
-      case "/":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/cadastro-de-usurio":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/login":
-        title = "";
-        metaDescription = "";
-        break;
       case "/landing-page":
         title = "";
         metaDescription = "";
@@ -61,9 +50,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<CadastroDeMdico />} />
+      <Route path="/landing-page" element={<LandingPage />} />
       <Route path="/cadastro-de-usurio" element={<CadastroDeUsurio />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/landing-page" element={<LandingPage />} />
+      
     </Routes>
   );
 }

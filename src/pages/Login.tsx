@@ -5,6 +5,23 @@ import Footer1 from "../components/Footer1";
 const Login: FunctionComponent = () => {
   const [frameInputValue, setFrameInputValue] = useState("");
   const [frameInput1Value, setFrameInput1Value] = useState("");
+
+  const handleLogin = async () => {
+    const response = await fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        telefone: frameInputValue,
+        senha: frameInput1Value
+      })
+    });
+
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
     <div className="relative bg-white w-full h-[1715px] overflow-hidden text-left text-13xl text-black font-ibm-plex-sans">
       <Header />
@@ -38,11 +55,11 @@ const Login: FunctionComponent = () => {
             Senha
           </b>
         </div>
-        <button className="cursor-pointer [border:none] py-2.5 px-[25px] bg-royalblue-100 absolute top-[668px] left-[201px] rounded-xl overflow-hidden flex flex-row items-center justify-center">
-          <div className="relative text-13xl font-ibm-plex-sans text-gray-100 text-center inline-block w-[165px] shrink-0">
-            Entrar
-          </div>
-        </button>
+         <button onClick={handleLogin} className="cursor-pointer [border:none] py-2.5 px-[25px] bg-royalblue-100 absolute top-[668px] left-[201px] rounded-xl overflow-hidden flex flex-row items-center justify-center">
+      <div className="relative text-13xl font-ibm-plex-sans text-gray-100 text-center inline-block w-[165px] shrink-0">
+        Entrar
+      </div>
+    </button>
       </div>
       <Footer1 />
       <img
