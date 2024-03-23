@@ -16,9 +16,9 @@ export const ArrowRight: React.FC<Icon> = ({
             <path
                 d="M13 6L1 6M7.75 11L13 6L7.75 1"
                 stroke={color}
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     );
