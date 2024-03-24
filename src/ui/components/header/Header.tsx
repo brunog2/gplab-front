@@ -1,17 +1,25 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from '../ui/drawer';
+import { Button } from '../ui/button';
 
 const Header: React.FC = () => {
     const isAuthenticated: boolean = true;
 
     return (
-        <header className="px-10 py-12 flex justify-between items-center">
-            <h1 className="font-bold text-3xl">
-                GP
-                <span className="text-blue-700">Lab</span>
-            </h1>
-
-            <div className="flex gap-6 items-center">
+        <header className="px-10 py-12 flex">
+            <div className="ml-auto flex gap-6 items-center">
                 {isAuthenticated ? (
                     <>
                         <Link

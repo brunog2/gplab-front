@@ -1,45 +1,43 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+const config = {
+    darkMode: ['class'],
     content: [
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './pages/**/*.{ts,tsx}',
+        './src/ui/**/*.{ts,tsx}',
+        './app/**/*.{ts,tsx}',
+        './src/**/*.{ts,tsx}',
     ],
+    prefix: '',
     theme: {
-        extend: {
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic':
-                    'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        container: {
+            center: true,
+            padding: '2rem',
+            screens: {
+                '2xl': '1400px',
             },
+        },
+        extend: {
             colors: {
-                background: '#E1EEFF',
-                royalblue: {
-                    100: '#0360d9',
-                    200: 'rgba(3, 96, 217, 0.31)',
-                },
-                white: '#fff',
-                gray: {
-                    100: '#fafafa',
-                    200: '#021526',
-                },
-                black: '#000',
-                whitesmoke: '#efefef',
                 lavender: '#e1eeff',
-                silver: 'rgba(181, 181, 181, 0.68)',
-                darkslategray: {
-                    100: '#2e2e2e',
-                    200: '#163048',
-                    300: '#0d2b46',
+            },
+            keyframes: {
+                'accordion-down': {
+                    from: { height: '0' },
+                    to: { height: 'var(--radix-accordion-content-height)' },
                 },
-                darkgray: '#a8a8a8',
-                aliceblue: '#e6f5fc',
-                lightskyblue: '#a5ccff',
+                'accordion-up': {
+                    from: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: '0' },
+                },
+            },
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
             },
         },
     },
-    plugins: [],
-};
+    plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;
