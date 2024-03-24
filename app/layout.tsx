@@ -21,8 +21,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={IBM.className}>
-                {children}
-                <Footer />
+                <div className="h-screen flex flex-col">
+                    <div className="flex-1 [&>*:first-child]:min-h-full">
+                        {children}
+                    </div>
+                    <Footer />
+                </div>
             </body>
         </html>
     );
