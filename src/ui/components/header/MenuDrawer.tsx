@@ -34,6 +34,10 @@ const MENUITEMS = [
         ],
     },
     {
+        label: 'Consultas',
+        href: '/consultas',
+    },
+    {
         label: 'Configurações',
         href: '',
     },
