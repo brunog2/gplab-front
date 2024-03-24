@@ -13,7 +13,7 @@ import {
 const MENUITEMS = [
     {
         label: 'Início',
-        href: '/',
+        href: '/home',
     },
     {
         label: 'Cadastro',
