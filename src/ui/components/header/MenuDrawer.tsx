@@ -9,11 +9,13 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '../ui/accordion';
+import { Cog, Home, LogOut } from 'lucide-react';
 
 const MENUITEMS = [
     {
         label: 'Início',
         href: '/home',
+        icon: <Home size={16} />,
     },
     {
         label: 'Cadastro',
@@ -44,10 +46,12 @@ const MENUITEMS = [
     {
         label: 'Configurações',
         href: '',
+        icon: <Cog size={16} />,
     },
     {
         label: 'Sair',
         href: '',
+        icon: <LogOut size={16} />,
     },
 ];
 
@@ -62,7 +66,7 @@ export const MenuDrawer: React.FC = () => {
             modal={!isDesktop}
             fixed={false}
         >
-            <div className="row-start-1 row-end-3 min-w-96 bg-blue-100">
+            <div className="row-start-1 row-end-3 min-w-64 bg-blue-100">
                 <DrawerHeader className="py-10">
                     <DrawerTitle className="text-center font-bold text-5xl">
                         GP
@@ -80,11 +84,11 @@ export const MenuDrawer: React.FC = () => {
                                             <AccordionItem
                                                 value={`menuitem-${index}`}
                                             >
-                                                <AccordionTrigger className="justify-center hover:bg-blue-700/25 gap-2 text-sm rounded-md py-2">
+                                                <AccordionTrigger className="hover:bg-blue-700/25 text-sm rounded-md py-2 px-4 hover:no-underline">
                                                     {item.label}
                                                 </AccordionTrigger>
                                                 <AccordionContent>
-                                                    <ul>
+                                                    <ul className="ml-4">
                                                         {item.subitems.map(
                                                             subitem => (
                                                                 <li
@@ -95,7 +99,7 @@ export const MenuDrawer: React.FC = () => {
                                                                     <Link
                                                                         href={`${item.href}${subitem.href}`}
                                                                     >
-                                                                        <Button className="w-full bg-transparent text-black hover:bg-blue-700/25">
+                                                                        <Button className="w-full justify-start bg-transparent text-black hover:bg-blue-700/25">
                                                                             {
                                                                                 subitem.label
                                                                             }
@@ -111,7 +115,8 @@ export const MenuDrawer: React.FC = () => {
                                     </Accordion>
                                 ) : (
                                     <Link href={item.href}>
-                                        <Button className="w-full bg-transparent text-black hover:bg-blue-700/25">
+                                        <Button className="w-full gap-2 justify-start bg-transparent text-black hover:bg-blue-700/25">
+                                            {item.icon}
                                             {item.label}
                                         </Button>
                                     </Link>
