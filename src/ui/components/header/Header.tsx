@@ -10,20 +10,12 @@ const Header: React.FC = () => {
         <header className="px-10 py-12 flex">
             <div className="ml-auto flex gap-6 items-center">
                 {isAuthenticated ? (
-                    <>
-                        <Link
-                            href={'/login'}
-                            className="px-7 py-3 rounded-full border-2 border-blue-700 text-blue-700 font-bold text-xl"
-                        >
-                            Entrar
-                        </Link>
-                        <Link
-                            href={'/register'}
-                            className="px-7 py-3 rounded-full bg-blue-700 text-white font-bold text-xl"
-                        >
-                            Cadastrar
-                        </Link>
-                    </>
+                    <Link
+                        href={'/login'}
+                        className="px-7 py-3 rounded-full border-2 border-blue-700 text-blue-700 font-bold text-xl"
+                    >
+                        Entrar
+                    </Link>
                 ) : (
                     <>
                         <Link href={''}>
