@@ -11,7 +11,7 @@ const MENUITEMS = [
     },
     {
         label: 'Cadastro',
-        href: '',
+        href: '/cadastro/usuario',
     },
     {
         label: 'Configurações',
