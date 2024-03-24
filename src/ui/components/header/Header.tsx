@@ -2,17 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-} from '../ui/drawer';
-import { Button } from '../ui/button';
 
 const Header: React.FC = () => {
     const isAuthenticated: boolean = true;
