@@ -1,6 +1,6 @@
 'use client';
 
-import { createUserAction } from '@/src/data/actions/createUserAction';
+import { createUserAction } from '@/src/data/actions/UserActions';
 import { SubmitButton } from '@/src/ui/components/ui/SubmitButton';
 import { Button } from '@/src/ui/components/ui/button';
 import { UserForm } from '@/src/ui/forms/UserForm';
