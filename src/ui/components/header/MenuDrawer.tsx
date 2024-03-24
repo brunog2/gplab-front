@@ -33,6 +33,10 @@ const MENUITEMS = [
                 label: 'Atendente',
                 href: '/atendente',
             },
+            {
+                label: 'Gerenciar',
+                href: '/gerenciamento',
+            },
         ],
     },
     {
