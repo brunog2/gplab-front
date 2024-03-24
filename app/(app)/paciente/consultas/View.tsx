@@ -9,7 +9,7 @@ import {
     getPaginationRowModel,
     useReactTable,
 } from '@tanstack/react-table';
-import { Pencil, Trash } from 'lucide-react';
+import { Pencil, Phone, Trash } from 'lucide-react';
 
 interface ConsultasViewProps {
     consultas: Consulta[];
@@ -36,14 +36,9 @@ export const ConsultasView: React.FC<ConsultasViewProps> = ({ consultas }) => {
             header: 'Ações',
             cell(props) {
                 return (
-                    <div className="flex gap-2">
-                        <Button size="icon" variant="ghost">
-                            <Pencil size={16} />
-                        </Button>
-                        <Button size="icon" variant="ghost">
-                            <Trash size={16} />
-                        </Button>
-                    </div>
+                    <Button size="icon" variant="ghost">
+                        <Phone size={16} />
+                    </Button>
                 );
             },
         }),
