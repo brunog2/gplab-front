@@ -3,4 +3,5 @@ export interface Consulta {
     medico: string;
     categoria: string;
     data: string;
+    paciente?: string;
 }
