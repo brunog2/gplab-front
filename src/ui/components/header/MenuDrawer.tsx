@@ -3,6 +3,12 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { DrawerHeader, DrawerTitle, Drawer } from '../ui/drawer';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '../ui/accordion';
 
 const MENUITEMS = [
     {
@@ -11,7 +17,21 @@ const MENUITEMS = [
     },
     {
         label: 'Cadastro',
-        href: '/cadastro/usuario',
+        href: '/cadastro',
+        subitems: [
+            {
+                label: 'Médico',
+                href: '/medico',
+            },
+            {
+                label: 'Usuário',
+                href: '/usuario',
+            },
+            {
+                label: 'Atendente',
+                href: '/atendente',
+            },
+        ],
     },
     {
         label: 'Configurações',
@@ -46,11 +66,48 @@ export const MenuDrawer: React.FC = () => {
                     <ul className="space-y-2">
                         {MENUITEMS.map((item, index) => (
                             <li key={index}>
-                                <Link href={item.href}>
-                                    <Button className="w-full bg-transparent text-black hover:bg-blue-700/25">
-                                        {item.label}
-                                    </Button>
-                                </Link>
+                                {item.subitems ? (
+                                    <Accordion type="multiple">
+                                        {
+                                            <AccordionItem
+                                                value={`menuitem-${index}`}
+                                            >
+                                                <AccordionTrigger className="justify-center hover:bg-blue-700/25 gap-2 text-sm rounded-md py-2">
+                                                    {item.label}
+                                                </AccordionTrigger>
+                                                <AccordionContent>
+                                                    <ul>
+                                                        {item.subitems.map(
+                                                            subitem => (
+                                                                <li
+                                                                    key={
+                                                                        subitem.href
+                                                                    }
+                                                                >
+                                                                    <Link
+                                                                        href={`${item.href}${subitem.href}`}
+                                                                    >
+                                                                        <Button className="w-full bg-transparent text-black hover:bg-blue-700/25">
+                                                                            {
+                                                                                subitem.label
+                                                                            }
+                                                                        </Button>
+                                                                    </Link>
+                                                                </li>
+                                                            )
+                                                        )}
+                                                    </ul>
+                                                </AccordionContent>
+                                            </AccordionItem>
+                                        }
+                                    </Accordion>
+                                ) : (
+                                    <Link href={item.href}>
+                                        <Button className="w-full bg-transparent text-black hover:bg-blue-700/25">
+                                            {item.label}
+                                        </Button>
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
