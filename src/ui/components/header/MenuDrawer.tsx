@@ -36,11 +36,9 @@ export const MenuDrawer: React.FC = () => {
         >
             <div className="row-start-1 row-end-3 min-w-96 bg-blue-100">
                 <DrawerHeader className="py-10">
-                    <DrawerTitle className="text-center">
-                        <h1 className="font-bold text-5xl">
-                            GP
-                            <span className="text-blue-700">Lab</span>
-                        </h1>
+                    <DrawerTitle className="text-center font-bold text-5xl">
+                        GP
+                        <span className="text-blue-700">Lab</span>
                     </DrawerTitle>
                 </DrawerHeader>
                 <hr className="border-white mx-4 pb-10" />
