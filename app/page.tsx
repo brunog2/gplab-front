@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
                             Entrar
                         </Link>
                         <Link
-                            href={'/register'}
+                            href={'/cadastro/usuario'}
                             className="px-7 py-3 rounded-full bg-blue-700 text-white font-bold text-xl"
                         >
                             Cadastrar
