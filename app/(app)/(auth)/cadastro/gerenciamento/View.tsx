@@ -1,6 +1,6 @@
 'use client';
 
-import { User } from '@/src/data/@types/User';
+import { type Person } from '@/src/data/@types/Person';
 import { DataTable } from '@/src/ui/components/ui/DataTable';
 import { Button } from '@/src/ui/components/ui/button';
 import { Input } from '@/src/ui/components/ui/input';
@@ -15,10 +15,10 @@ import { Pencil, Search, Trash } from 'lucide-react';
 import { useRef } from 'react';
 
 interface GerenciarUsuariosViewProps {
-    users: User[];
+    users: Person[];
 }
 
-const columnHelper = createColumnHelper<User>();
+const columnHelper = createColumnHelper<Person>();
 
 export const GerenciarUsuariosView: React.FC<GerenciarUsuariosViewProps> = ({
     users,
@@ -26,8 +26,8 @@ export const GerenciarUsuariosView: React.FC<GerenciarUsuariosViewProps> = ({
     const searchRef = useRef<HTMLInputElement>(null);
 
     const columns = [
-        columnHelper.accessor('id', {
-            header: 'Código',
+        columnHelper.accessor('cpf', {
+            header: 'CPF',
             enableColumnFilter: false,
         }),
         columnHelper.accessor('name', {
@@ -76,24 +76,19 @@ export const GerenciarUsuariosView: React.FC<GerenciarUsuariosViewProps> = ({
     };
 
     return (
-        <div className="px-20">
-            <h3 className="text-4xl font-bold text-blue-700">
-                Tabela de usuários
-            </h3>
-            <div className="py-20">
-                <div className="flex pb-4 gap-2 justify-end">
-                    <Input
-                        ref={searchRef}
-                        type="search"
-                        placeholder="Pesquisar"
-                        className="max-w-72"
-                    />
-                    <Button size="icon" onClick={handleSearch}>
-                        <Search />
-                    </Button>
-                </div>
-                <DataTable table={table} />
+        <>
+            <div className="flex pb-4 gap-2 justify-end">
+                <Input
+                    ref={searchRef}
+                    type="search"
+                    placeholder="Pesquisar"
+                    className="max-w-72"
+                />
+                <Button size="icon" onClick={handleSearch}>
+                    <Search />
+                </Button>
             </div>
-        </div>
+            <DataTable table={table} />
+        </>
     );
 };
