@@ -1,4 +1,10 @@
-import { type Person } from '@/src/data/@types/Person';
+import {
+    type User,
+    type Person,
+    type Doctor,
+    type Attendent,
+    PersonTypeEnum,
+} from '@/src/data/@types/Person';
 import { GerenciarUsuariosView } from './View';
 import { cache } from 'react';
 import { apiService } from '@/src/data/services/apiService';
@@ -7,22 +13,22 @@ export const revalidate = 3600;
 
 const getPeople = cache(async (): Promise<Person[]> => {
     const [userRes, doctorRes, attendentRes] = await Promise.all([
-        apiService.get<Person[]>('/user/profile'),
-        apiService.get<Person[]>('/doctor/profile'),
-        apiService.get<Person[]>('/attendent/profile'),
+        apiService.get<User[]>('/user/profile'),
+        apiService.get<Doctor[]>('/doctor/profile'),
+        apiService.get<Attendent[]>('/attendent/profile'),
     ]);
 
-    const users: Person[] = userRes.data.map(user => ({
+    const users: User[] = userRes.data.map(user => ({
         ...user,
-        type: 'usuário',
+        type: PersonTypeEnum.user,
     }));
-    const doctors: Person[] = doctorRes.data.map(user => ({
+    const doctors: Doctor[] = doctorRes.data.map(user => ({
         ...user,
-        type: 'médico',
+        type: PersonTypeEnum.doctor,
     }));
-    const attendents: Person[] = attendentRes.data.map(user => ({
+    const attendents: Attendent[] = attendentRes.data.map(user => ({
         ...user,
-        type: 'atendente',
+        type: PersonTypeEnum.attendent,
     }));
 
     return [...users, ...doctors, ...attendents];
