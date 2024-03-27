@@ -8,6 +8,7 @@ export interface UserFormSchema {
     address?: string;
     birth?: string;
     phone?: string;
+    password?: string;
 }
 
 interface UserFormProps {
@@ -85,6 +86,20 @@ export const UserForm: React.FC<UserFormProps> = ({
                 />
                 <span className="text-red-500 text-xs">
                     {errors?.phone ? errors.phone : ''}
+                </span>
+            </Label>
+            <Label>
+                Senha
+                <Input
+                    type="password"
+                    name="password"
+                    required
+                    minLength={8}
+                    maxLength={32}
+                    defaultValue={defaultValues?.password}
+                />
+                <span className="text-red-500 text-xs">
+                    {errors?.password ? errors.password : ''}
                 </span>
             </Label>
         </div>
