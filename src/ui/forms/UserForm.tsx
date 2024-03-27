@@ -38,7 +38,10 @@ export const UserForm: React.FC<UserFormProps> = ({
             <Label>
                 CPF
                 <Input
+                    className="invalid:border-red-500"
                     type="text"
+                    pattern="\d{11}"
+                    placeholder="00000000000"
                     name="cpf"
                     required
                     minLength={11}
