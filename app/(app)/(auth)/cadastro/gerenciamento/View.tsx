@@ -1,6 +1,6 @@
 'use client';
 
-import { type Person } from '@/src/data/@types/Person';
+import type { User, Person, Doctor } from '@/src/data/@types/Person';
 import { DataTable } from '@/src/ui/components/ui/DataTable';
 import { Button } from '@/src/ui/components/ui/button';
 import { Input } from '@/src/ui/components/ui/input';
@@ -26,9 +26,17 @@ export const GerenciarUsuariosView: React.FC<GerenciarUsuariosViewProps> = ({
     const searchRef = useRef<HTMLInputElement>(null);
 
     const columns = [
-        columnHelper.accessor('cpf', {
-            header: 'CPF',
+        columnHelper.display({
+            header: 'CPF / CRM',
             enableColumnFilter: false,
+            cell(props) {
+                return (
+                    <p>
+                        {(props.row.original as User).cpf ||
+                            (props.row.original as Doctor).crm}
+                    </p>
+                );
+            },
         }),
         columnHelper.accessor('name', {
             header: 'Nome',
