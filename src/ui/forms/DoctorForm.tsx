@@ -5,6 +5,8 @@ export interface DoctorFormSchema {
     name: string;
     crm: string;
     phone: string;
+    birth: string;
+    password: string;
 }
 
 interface DoctorFormProps {
@@ -46,6 +48,18 @@ export const DoctorForm: React.FC<DoctorFormProps> = ({
                 </span>
             </Label>
             <Label>
+                Data de nascimento
+                <Input
+                    type="date"
+                    name="birth"
+                    required
+                    defaultValue={defaultValues?.birth}
+                />
+                <span className="text-red-500 text-xs">
+                    {errors?.birth ? errors.birth : ''}
+                </span>
+            </Label>
+            <Label>
                 Telefone
                 <Input
                     type="tel"
@@ -57,6 +71,20 @@ export const DoctorForm: React.FC<DoctorFormProps> = ({
                 />
                 <span className="text-red-500 text-xs">
                     {errors?.phone ? errors.phone : ''}
+                </span>
+            </Label>
+            <Label>
+                Senha
+                <Input
+                    type="password"
+                    name="password"
+                    required
+                    minLength={8}
+                    maxLength={32}
+                    defaultValue={defaultValues?.password}
+                />
+                <span className="text-red-500 text-xs">
+                    {errors?.password ? errors.password : ''}
                 </span>
             </Label>
         </div>
